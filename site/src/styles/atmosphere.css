@@ -1,0 +1,62 @@
+.atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.atmosphere__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.atmosphere__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+.atmosphere__glow--a {
+  width: min(520px, 48vw);
+  height: min(520px, 48vw);
+  left: -10vw;
+  top: 16vh;
+  background: rgba(124, 58, 237, 0.22);
+}
+
+.atmosphere__glow--b {
+  width: min(420px, 40vw);
+  height: min(420px, 40vw);
+  right: -8vw;
+  top: 6vh;
+  background: rgba(192, 132, 252, 0.15);
+  animation-delay: -5s;
+}
+
+.atmosphere__glow--c {
+  width: min(360px, 34vw);
+  height: min(360px, 34vw);
+  left: 40vw;
+  bottom: -8vh;
+  background: rgba(76, 29, 149, 0.2);
+  animation-delay: -9s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(22px, -28px, 0) scale(1.07);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere__glow {
+    animation: none;
+  }
+}

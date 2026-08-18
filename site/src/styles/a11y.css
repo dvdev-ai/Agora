@@ -1,0 +1,36 @@
+/* Дополнительные состояния фокуса и печати для витрины Агоры */
+
+.btn:focus-visible,
+.chip:focus-visible,
+.score-btn:focus-visible,
+.burger:focus-visible,
+.nav-desktop a:focus-visible,
+.field input:focus-visible,
+.field textarea:focus-visible,
+.faq summary:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.7);
+  outline-offset: 3px;
+}
+
+@media print {
+  .atmosphere,
+  .site-header,
+  .site-footer,
+  .burger,
+  .marquee,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .hero,
+  .section,
+  .page-hero {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+}

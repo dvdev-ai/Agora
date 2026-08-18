@@ -1,0 +1,7 @@
+services:
+  agora:
+    build: .
+    container_name: agora-bot
+    restart: unless-stopped
+    env_file:
+      - .env
